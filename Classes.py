@@ -31,7 +31,7 @@ if __name__ == "__main__":
 	Screen.fill((255,255,213))
 	Lemon = Button(10,y,45,45,[255,213,0],Screen)
 	counter	= 0
-	while True and y <= 600:
+	while True and y <= 600:  #????
 		ev = pygame.event.poll()
 		pygame.display.flip()
 		Lemon = Button(10,y,45,45,[255,213,0],Screen)	
