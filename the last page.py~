@@ -1,0 +1,23 @@
+import pygame
+import sys
+
+if __name__=="__main__":
+	pygame.init()
+	main_screen = pygame.display.set_mode((600, 600))
+	main_screen.fill((255, 255, 255))
+	button_rec = pygame.Rect((100, 200, 50, 20))
+	button_sq = pygame.Surface([20,20])
+	main_screen.blit(button_sq, button_rec)
+
+	while True: 
+		ev = pygame.event.poll()
+		
+		pygame.display.flip()
+
+	
+
+x = [1,2,3,4,5]
+for i in x:
+	price = 5
+	price * i =y
+	print "price: " + y
