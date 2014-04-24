@@ -3,8 +3,8 @@ import pygame
 
 # pygame.init()
  #main_screen = pygame.display.set_mode((600, 600))
-def TextAt(start_x, start_y, length_x, length_y, FontSize, Context, FontColor, BackgroundColor):
-	main_screen = pygame.display.set_mode((600, 600))
+def TextAt(start_x, start_y, length_x, length_y, FontSize, Context, FontColor, BackgroundColor, main_screen):
+	# main_screen = pygame.display.set_mode((600, 600))
 	label_rec = pygame.Rect(start_x, start_y ,length_x, length_y)
 	Surface = pygame.Surface([length_x, length_y])
 	orderlabel = pygame.font.Font(None,FontSize)

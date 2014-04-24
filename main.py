@@ -1,6 +1,7 @@
 import pygame
 import Classes 
 import label
+import sys
 
 if __name__=="__main__":
     pygame.init()
@@ -13,22 +14,23 @@ if __name__=="__main__":
     #main_screen.blit(square , button_rec) 
 
 
-    Button = Classes.Button(225, 225 ,350, 100, [0,0,255],main_screen)
+    Button = Classes.Button(150, 225 ,350, 100, [237,133,69],main_screen)
     Button.Do()
     
      
 
-while True:
-    ev = pygame.event.poll()
-    pygame.display.flip()
-    label.TextAt(225,225,200,100,70,"Make IceCream",(0,255,0),(255,255,255))
-    if ev.type == pygame.QUIT:
-        sys.exit()
-    if ev.type == pygame.MOUSEBUTTONDOWN:
-        x , y = ev.pos
-        if Button.Rectangle.collidepoint(x, y):
-            
-            print "clicked"
+    while True:
+        ev = pygame.event.poll()
+        
+        label.TextAt(150,225,200,100,70,"Make IceCream",(255,255,255),(237,133,69), main_screen)
+        if ev.type == pygame.QUIT:
+            sys.exit()
+        if ev.type == pygame.MOUSEBUTTONDOWN:
+            x , y = ev.pos
+            if Button.Rectangle.collidepoint(x, y):
+                
+                print "clicked"
+        pygame.display.flip()
          
 
         

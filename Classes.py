@@ -28,7 +28,7 @@ if __name__ == "__main__":
 	y = 10
 	pygame.init()
 	Screen = pygame.display.set_mode((500, 500))
-	Screen.fill((255,255,213))
+	Screen.fill((255,255,255))
 	Lemon = Button(10,y,45,45,[255,213,0],Screen)
 	counter	= 0
 	while True and y <= 600:  #????
