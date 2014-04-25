@@ -6,28 +6,30 @@ from label import *
 
 def ScreenIt(x,y,Screen,ClickedyClick):
 	
-	DrawLayout(Screen)
-	if Lemon.Rectangle.collidepoint(x, y):
-		Yellow = pygame.image.load("Lemon.jpeg")
-		Screen.blit(Yellow,(275,245-60*ClickedyClick))
-		ClickedyClick += 1
-	elif Chocolate.Rectangle.collidepoint(x, y):
-		Brown = pygame.image.load("Chocolate.jpeg")
-		Screen.blit(Brown,(275,245-60*ClickedyClick))
-		ClickedyClick += 1
-	elif Vanilla.Rectangle.collidepoint(x, y):
-		White = pygame.image.load("Vanilla.jpeg")
-		Screen.blit(White,(275,245-60*ClickedyClick))
-		ClickedyClick += 1
-	elif Strawberry.Rectangle.collidepoint(x, y):
-		Red = pygame.image.load("Strawberry.jpeg")
-		Screen.blit(Red,(275,245-60*ClickedyClick))
-		ClickedyClick += 1
-	elif Pistachio.Rectangle.collidepoint(x, y):
-		Green = pygame.image.load("Pistachio.jpeg")
-		Screen.blit(Green,(275,245-60*ClickedyClick))
-		ClickedyClick += 1
-	return ClickedyClick
+	if ClickedyClick < 3:
+		DrawLayout(Screen)
+		if Lemon.Rectangle.collidepoint(x, y):
+			Yellow = pygame.image.load("Lemon.jpeg")
+			Screen.blit(Yellow,(275,245-60*ClickedyClick))
+			ClickedyClick += 1
+		elif Chocolate.Rectangle.collidepoint(x, y):
+			Brown = pygame.image.load("Chocolate.jpeg")
+			Screen.blit(Brown,(275,245-60*ClickedyClick))
+			ClickedyClick += 1
+		elif Vanilla.Rectangle.collidepoint(x, y):
+			White = pygame.image.load("Vanilla.jpeg")
+			Screen.blit(White,(275,245-60*ClickedyClick))
+			ClickedyClick += 1
+		elif Strawberry.Rectangle.collidepoint(x, y):
+			Red = pygame.image.load("Strawberry.jpeg")
+			Screen.blit(Red,(275,245-60*ClickedyClick))
+			ClickedyClick += 1
+		elif Pistachio.Rectangle.collidepoint(x, y):
+			Green = pygame.image.load("Pistachio.jpeg")
+			Screen.blit(Green,(275,245-60*ClickedyClick))
+			ClickedyClick += 1
+		return ClickedyClick
+	return 3
 
 #---------------------------------------------------------------------------------------------------------------------
 
