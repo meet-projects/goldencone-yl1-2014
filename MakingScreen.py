@@ -12,7 +12,6 @@ from label import *
 #USE ONLY THIS HERE FUNCTION
 
 def DrawLayout(Screen): ##This draws the WHOLE page
-	print "draw main layout"
 	Draw_Layout_LeftSide(AddFlavorButtons(Screen))
 	Draw_Cone(Screen)
 	Draw_DoneButton(Screen)
