@@ -38,6 +38,7 @@ def DrawLayout(Screen): ##This draws the WHOLE page
 	Draw_Cone(Screen)
 	Draw_DoneButton(Screen)
 	Label_DoneButton(Screen)
+	Label_FlavourButtons(Screen)
 	
 #---------------------------------------------------------------------------------------------------------------------
 
@@ -51,25 +52,25 @@ def AddFlavorButtons(Screen):
 	Buttons = []
 	global Lemon 
 
-	Lemon = Button(0,100,50,50,[255,255,0], Screen)
+	Lemon = Button(0,100,100,50,[255,255,0], Screen)
 
 	#TextAt(0,100,50,50,10, "Lemon", (0,0,0), Screen)
 	Buttons.append(Lemon) #Lemon
 	
 	global Chocolate 
-	Chocolate = Button(0,150+20,50,50,[102,51,0], Screen)
+	Chocolate = Button(0,150+20,100,50,[102,51,0], Screen)
 	Buttons.append(Chocolate) #Chocolate
 
 	global Vanilla
-	Vanilla = Button(0,200+40,50,50,[255,255,204], Screen)
+	Vanilla = Button(0,200+40,100,50,[255,255,204], Screen)
 	Buttons.append(Vanilla) #Vanilla
 
 	global Strawberry
-	Strawberry = Button(0,250+60,50,50,[255,102,102], Screen)
+	Strawberry = Button(0,250+60,100,50,[255,102,102], Screen)
 	Buttons.append(Strawberry) #Strawberry
 
 	global Pistachio
-	Pistachio = Button(0,300+80,50,50,[153,255,153], Screen)
+	Pistachio = Button(0,300+80,100,50,[153,255,153], Screen)
 	Buttons.append(Pistachio) #Pistachio
 
 	return Buttons
@@ -99,7 +100,12 @@ def Label_DoneButton(Screen):
 
 #---------------------------------------------------------------------------------------------------------------------
 
-#def Label_FlavourButtons(Screen):
+def Label_FlavourButtons(Screen):
+	LemonLabel = TextAt(0,100,50,50,25,"Lemon",(0,0,0),(255,255,102),Screen)
+	ChocolateLabel = TextAt(0,150+20,50,50,25,"Chocolate",(0,0,0),(102,51,0),Screen)
+	VanillaLabel = TextAt(0,200+40,50,50,25,"Vanilla",(0,0,0),(255,255,204),Screen)
+	StrawberryLabel = TextAt(0,250+60,50,50,25,"Strawberry",(0,0,0),(255,102,102),Screen)
+	PistachioLabel = TextAt(0,300+80,50,50,25,"Pistachio",(0,0,0),(153,255,153),Screen)
 
 #---------------------------------------------------------------------------------------------------------------------
 

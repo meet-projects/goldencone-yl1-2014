@@ -14,15 +14,18 @@ if __name__ == "__main__":
 	Screen = pygame.display.set_mode((600,600))
 	Screen.fill((255,255,255))
 	main.StartScreen(Screen)
+	Page = 1
 	while True:
 		ev = pygame.event.poll()
 		if ev.type == pygame.MOUSEBUTTONDOWN:
 			x, y = ev.pos
 			if main.Button.Rectangle.collidepoint(x, y):
 				main.WhiteOut(Screen)
-			ClickedyClick = MakingScreen.ScreenIt(x, y, Screen,ClickedyClick)
-			if MakingScreen.DoneButton.Rectangle.collidepoint(x, y):
-				thelastpage.FinalPage(Screen,ClickedyClick)
+				Page += 1
+			if Page == 2:
+				ClickedyClick = MakingScreen.ScreenIt(x, y, Screen,ClickedyClick)
+				if MakingScreen.DoneButton.Rectangle.collidepoint(x, y):
+					thelastpage.FinalPage(Screen,ClickedyClick)
 		pygame.display.flip()
 
 #--------------------------------------------------------------------------------------------
