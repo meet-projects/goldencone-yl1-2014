@@ -3,18 +3,39 @@ from Classes import *
 from label import *
 
 #---------------------------------------------------------------------------------------------------------------------
-#This right here is the funtion
-#That you are supposed to use
-#If you want to draw
-#The page with all the buttons
-#For Flavors, Toppings, and Cone Size
-#
-#USE ONLY THIS HERE FUNCTION
+
+def ScreenIt(x,y,Screen,ClickedyClick):
+	
+	DrawLayout(Screen)
+	if Lemon.Rectangle.collidepoint(x, y):
+		Yellow = pygame.image.load("Lemon.jpeg")
+		Screen.blit(Yellow,(275,245-60*ClickedyClick))
+		ClickedyClick += 1
+	elif Chocolate.Rectangle.collidepoint(x, y):
+		Brown = pygame.image.load("Chocolate.jpeg")
+		Screen.blit(Brown,(275,245-60*ClickedyClick))
+		ClickedyClick += 1
+	elif Vanilla.Rectangle.collidepoint(x, y):
+		White = pygame.image.load("Vanilla.jpeg")
+		Screen.blit(White,(275,245-60*ClickedyClick))
+		ClickedyClick += 1
+	elif Strawberry.Rectangle.collidepoint(x, y):
+		Red = pygame.image.load("Strawberry.jpeg")
+		Screen.blit(Red,(275,245-60*ClickedyClick))
+		ClickedyClick += 1
+	elif Pistachio.Rectangle.collidepoint(x, y):
+		Green = pygame.image.load("Pistachio.jpeg")
+		Screen.blit(Green,(275,245-60*ClickedyClick))
+		ClickedyClick += 1
+	return ClickedyClick
+
+#---------------------------------------------------------------------------------------------------------------------
 
 def DrawLayout(Screen): ##This draws the WHOLE page
 	Draw_Layout_LeftSide(AddFlavorButtons(Screen))
 	Draw_Cone(Screen)
 	Draw_DoneButton(Screen)
+	Label_DoneButton(Screen)
 	
 #---------------------------------------------------------------------------------------------------------------------
 
@@ -66,88 +87,32 @@ def Draw_BackButton(Screen):
 
 def Draw_DoneButton(Screen):
 	global DoneButton
-	DoneButton = Button(400,550,200,50,[0,0,0],Screen)
+	DoneButton = Button(500,550,100,50,[0,0,0],Screen)
 	DoneButton.Do()
+
+#---------------------------------------------------------------------------------------------------------------------
+
+def Label_DoneButton(Screen):
+	TextAt(500,550,100,50,60,"Done",(255,255,255),(0,0,0), Screen)
+
+#---------------------------------------------------------------------------------------------------------------------
+
+#def Label_FlavourButtons(Screen):
 
 #---------------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
 	pygame.init()
+	global Screen
 	Screen = pygame.display.set_mode((600, 600))
 	Screen.fill((255,255,255))
-	DrawLayout(Screen)
+	global ClickedyClick
 	ClickedyClick = 0
 	while True:
 		ev = pygame.event.poll()
 		if ev.type == pygame.MOUSEBUTTONDOWN:
 			x, y = ev.pos
-			if ClickedyClick == 0:
-				if Lemon.Rectangle.collidepoint(x, y):
-					Yellow = pygame.image.load("Lemon.jpeg")
-					Screen.blit(Yellow,(275,245))
-					ClickedyClick = 1
-				elif Chocolate.Rectangle.collidepoint(x, y):
-					Chocolate = pygame.image.load("Chocolate.jpeg")
-					Screen.blit(Chocolate,(275,245))
-					ClickedyClick = 1
-				elif Vanilla.Rectangle.collidepoint(x, y):
-					Vanilla = pygame.image.load("Vanilla.jpeg")
-					Screen.blit(Vanilla,(275,245))
-					ClickedyClick = 1
-				elif Strawberry.Rectangle.collidepoint(x, y):
-					Strawberry = pygame.image.load("Strawberry.jpeg")
-					Screen.blit(Strawberry,(275,245))
-					ClickedyClick = 1
-				elif Pistachio.Rectangle.collidepoint(x, y):
-					Pistachio = pygame.image.load("Pistachio.jpeg")
-					Screen.blit(Pistachio,(275,245))
-					ClickedyClick = 1
-
-			elif ClickedyClick == 1:
-				if Lemon.Rectangle.collidepoint(x, y):
-					Yellow = pygame.image.load("Lemon.jpeg")
-					Screen.blit(Yellow,(275,245-60))
-					ClickedyClick = 2
-				elif Chocolate.Rectangle.collidepoint(x, y):
-					Chocolate = pygame.image.load("Chocolate.jpeg")
-					Screen.blit(Chocolate,(275,245-60))
-					ClickedyClick = 2
-				elif Vanilla.Rectangle.collidepoint(x, y):
-					Vanilla = pygame.image.load("Vanilla.jpeg")
-					Screen.blit(Vanilla,(275,245-60))
-					ClickedyClick = 2
-				elif Strawberry.Rectangle.collidepoint(x, y):
-					Strawberry = pygame.image.load("Strawberry.jpeg")
-					Screen.blit(Strawberry,(275,245-60))
-					ClickedyClick = 2
-				elif Pistachio.Rectangle.collidepoint(x, y):
-					Pistachio = pygame.image.load("Pistachio.jpeg")
-					Screen.blit(Pistachio,(275,245-60))
-					ClickedyClick = 2
-
-			elif ClickedyClick == 2:
-				if Lemon.Rectangle.collidepoint(x, y):
-					Yellow = pygame.image.load("Lemon.jpeg")
-					Screen.blit(Yellow,(275,245-60-60))
-					ClickedyClick = 3
-				elif Chocolate.Rectangle.collidepoint(x, y):
-					Chocolate = pygame.image.load("Chocolate.jpeg")
-					Screen.blit(Chocolate,(275,245-60-60))
-					ClickedyClick = 3
-				elif Vanilla.Rectangle.collidepoint(x, y):
-					Vanilla = pygame.image.load("Vanilla.jpeg")
-					Screen.blit(Vanilla,(275,245-60-60))
-					ClickedyClick = 3
-				elif Strawberry.Rectangle.collidepoint(x, y):
-					Strawberry = pygame.image.load("Strawberry.jpeg")
-					Screen.blit(Strawberry,(275,245-60-60))
-					ClickedyClick = 3
-				elif Pistachio.Rectangle.collidepoint(x, y):
-					Pistachio = pygame.image.load("Pistachio.jpeg")
-					Screen.blit(Pistachio,(275,245-60-60))
-					ClickedyClick = 3
+			ScreenIt(x, y)
 			if DoneButton.Rectangle.collidepoint(x, y):
 				break
-	
 		pygame.display.flip()
-			
